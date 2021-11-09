@@ -12,6 +12,7 @@ let myObject = {
   city: "Haifa",
 };
 console.log(Object.keys(myObject));
+
 let valuesArr = Object.values(myObject);
 console.log(valuesArr);
 
@@ -20,3 +21,9 @@ console.log(backValues);
 
 console.log(Array.isArray(valuesArr));
 console.log(Array.isArray(backValues));
+
+let arrCopy = valuesArr.concat();
+console.log(arrCopy);
+
+let arrMutate = valuesArr;
+console.log(arrMutate);

@@ -39,6 +39,15 @@ function advPassWord(pw) {
 
 function advTwo(pw) {}
 
+function andAnd(pw) {
+  console.log((pw.length > 7 && "strong") || "weak");
+}
+
 advPassWord("HellOeoo");
 advPassWord("helloooo");
 advPassWord("helL");
+
+andAnd("HellOeoo");
+andAnd("helloooo");
+andAnd("helL");
+andAnd("");
