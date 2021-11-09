@@ -37,6 +37,8 @@ function advPassWord(pw) {
   }
 }
 
+function advTwo(pw) {}
+
 advPassWord("HellOeoo");
 advPassWord("helloooo");
 advPassWord("helL");
