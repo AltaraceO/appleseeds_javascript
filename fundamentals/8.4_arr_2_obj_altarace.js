@@ -1,28 +1,27 @@
 const arr = ["Hello", "Good Day", "Your Welcome", "hotdog", "hamburgers"];
 const arr2 = arr.join().replace(/[ ,.]/g, "").toLocaleLowerCase();
 
-const arr3 = "helohe";
 // console.log(arr2);
-let futureObj = [];
-const theDreadedObject = {};
 
-for (let i = 0; i < arr3.length; i++) {
-  for (let t = 0; t < futureObj.length; t++) {
-    if (arr3[i] === futureObj[t]) {
-      console.log("ting");
-    }
+const obj = {};
 
-    for (let j = 0; j < arr3.length; j++) {
-      futureObj.push(arr3[j]);
-      let counter = 0;
-      if (arr3[i] === arr3[j]) {
-        counter++;
-        console.log(counter, arr3[i]);
-      }
-    }
+let highest = 0;
+let mostLetter;
+
+for (let i = 0; i < arr2.length; i++) {
+  if (!obj[arr2[i]]) {
+    obj[arr2[i]] = 1;
+  } else {
+    obj[arr2[i]]++;
   }
-
-  theDreadedObject[arr3[i]] = i;
+  if (obj[arr2[i]] > highest) {
+    highest = obj[arr2[i]];
+    mostLetter = arr2[i];
+  }
+  // console.log(obj[arr2[i]]);
 }
+console.log(highest);
+console.log(mostLetter);
+console.log(obj);
 
-console.log(theDreadedObject);
+// console.log(obj.e);
