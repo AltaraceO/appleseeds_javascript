@@ -18,15 +18,18 @@ function hash(n) {
 hash(5);
 
 function steps(n) {
-  let matrix = [];
-
   for (let i = 0; i < n; i++) {
+    let matrix = "";
+
     for (let j = 0; j < n; j++) {
-      matrix[i] += "#";
-      matrix[i][j] += "*";
+      if ([i] >= [j]) {
+        matrix += "#";
+      } else {
+        matrix += "*";
+      }
     }
-    return matrix;
+    console.log(matrix);
   }
 }
 
-console.log(steps(4));
+console.log(steps(5));
