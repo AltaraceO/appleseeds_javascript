@@ -5,7 +5,7 @@ function compare(x, y) {
   for (let i = 0; i < x.length; i++) {
     for (let j = 0; j < y.length; j++) {
       //   console.log(x[i], y[j]);
-      x[i] === y[j] ? console.log(`${x[i]} = ${y[j]}`) : console.log(`miss`);
+      x[i] === y[j] ? console.log(`${x[i]} = ${y[j]}`) : console.log(`nope`);
     }
   }
 }

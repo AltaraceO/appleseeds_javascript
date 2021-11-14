@@ -15,4 +15,18 @@ function hash(n) {
   }
 }
 
-hash(4);
+hash(5);
+
+function steps(n) {
+  let matrix = [];
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      matrix[i] += "#";
+      matrix[i][j] += "*";
+    }
+    return matrix;
+  }
+}
+
+console.log(steps(4));
