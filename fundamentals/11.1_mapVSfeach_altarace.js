@@ -35,7 +35,7 @@ const newReleases = [
 
 let idAndName = [];
 newReleases.forEach(function (m) {
-  idAndName.push([m.id, m.title]);
+  idAndName.push({ id: m.id, title: m.title });
 });
 
 console.log(idAndName);
