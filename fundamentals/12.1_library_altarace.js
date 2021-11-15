@@ -16,4 +16,28 @@ var library = [
   },
 ];
 
-console.log(library.readingStatus);
+function availBook(arr) {
+  let canRead = [];
+
+  arr.forEach((item) => {
+    if (item.readingStatus === true) {
+      canRead.push({
+        author: item.author,
+        book: item.title,
+      });
+    }
+  });
+  return canRead;
+}
+
+console.log(availBook(library));
+
+function findBook(arr) {
+  const readableBook = arr.filter(function (item) {
+    if (item.readingStatus) {
+      console.log(item.author, "-", item.title);
+    }
+  });
+}
+
+findBook(library);
