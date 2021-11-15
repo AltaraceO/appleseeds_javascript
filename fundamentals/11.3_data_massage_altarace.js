@@ -65,8 +65,21 @@ console.log(birthday);
 
 // PART 3
 
-const food = Object.keys(data).map(function (item) {
-  return;
-});
-console.log(food);
-// vowelObject[let] = vowelObject[let] ? ++vowelObject[let] : 1;
+function getFood(arr) {
+  let foodObj = {};
+
+  arr.forEach(function (item) {
+    item.favoriteFoods.meats.forEach(function (meat) {
+      foodObj[meat] = foodObj[meat] ? ++foodObj[meat] : 1;
+    });
+  });
+  arr.forEach(function (item) {
+    item.favoriteFoods.fish.forEach(function (fish) {
+      foodObj[fish] = foodObj[fish] ? ++foodObj[fish] : 1;
+    });
+  });
+
+  return foodObj;
+}
+
+console.log(getFood(data));
