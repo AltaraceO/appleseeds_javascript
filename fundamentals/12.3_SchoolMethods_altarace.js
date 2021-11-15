@@ -37,4 +37,19 @@ const school = {
       age: 21,
     },
   ],
+  findPerson: function (category, id) {
+    return this[category].find(function (el) {
+      return el.id === id;
+    });
+  },
+  assignStudent: function (subject, id) {
+    this.teachers.subject.find(function (el) {
+      if (el === subject) {
+        console.log("match");
+      }
+    });
+  },
 };
+
+console.log(school.findPerson("teachers", 1));
+console.log(school.assignStudent("history", 10));
