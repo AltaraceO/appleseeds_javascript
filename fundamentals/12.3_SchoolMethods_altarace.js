@@ -53,15 +53,12 @@ const school = {
       for (let i = 0; i < el.subjects.length; i++) {
         //check teacher has the subject property
         //check teacher has capacity left in capacity property
-        console.log(el.subjects);
         if (el.subjects[i] === subject && el.capacityLeft > 0) {
           //el.student -> array
           el.students.push(x);
           el.capacityLeft--;
-          // return;
-          console.log(el);
-          return;
         }
+        return;
       }
       console.log("Sorry, no available teachers left");
     });
@@ -90,9 +87,12 @@ const school = {
 };
 
 // console.log(school.findPerson("teachers", 1));
-// console.log(school.assignStudent("chemistry", 10));
+school.assignStudent("chemistry", 10);
+school.assignStudent("history", 13);
+school.assignStudent("history", 13);
+school.assignStudent("history", 13);
+console.log(school);
 // console.log(school.assignStudent("history", 13));
-// console.log(school.assignStudent("history", 13));
-console.log(school.assignTeacher("P.E.", 1));
-console.log(school.assignTeacher("Trig", 1));
+// console.log(school.assignTeacher("P.E.", 1));
+// console.log(school.assignTeacher("Trig", 1));
 // console.log(school.teachers[0].students)
