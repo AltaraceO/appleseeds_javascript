@@ -22,15 +22,16 @@ const foodsWithUpperCase = [
 ];
 
 foodsWithUpperCase.sort(function (a, b) {
-  a = a.toLowerCase;
-  b = b.toLowerCase;
+  a = a.toLowerCase();
+  b = b.toLowerCase();
 
-  if (a > b) {
+  if (a < b) {
     return -1;
   }
-  if (a < b) {
+  if (a > b) {
     return 1;
   }
+  return 0;
 });
 
 console.log(foodsWithUpperCase);
@@ -44,3 +45,30 @@ words.sort(function (a, b) {
 });
 
 console.log(words);
+
+// D First letter sort
+
+const firstLetter = [
+  "falafel",
+  "Sabich",
+  "sbich",
+  "zummus",
+  "pizza with extra pineapple",
+];
+
+firstLetter.sort((a, b) => {
+  a = a.toLowerCase();
+  b = b.toLowerCase();
+
+  console.log(a[0], b[0]);
+
+  if (a[0] < b[0]) {
+    return 1;
+  }
+  if (a[0] > b[0]) {
+    return -1;
+  }
+  return 0;
+});
+
+console.log(firstLetter);
