@@ -43,9 +43,15 @@ const school = {
     });
   },
   assignStudent: function (subject, id) {
-    this.teachers.subject.find(function (el) {
-      if (el === subject) {
-        console.log("match");
+    this.teachers.forEach(function (el) {
+      for (let i = 0; i < el.subjects.length; i++) {
+        if (el.subjects[i] === subject) {
+          if (el.capacityLeft !== 0) {
+            console.log(el.capacityLeft);
+            el.students.push(findPerson("students", id));
+            console.log(el);
+          }
+        }
       }
     });
   },
