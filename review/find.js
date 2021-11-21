@@ -1,28 +1,34 @@
-const numbersR = [1, 100, 67, -5, 6784, 356, 200];
+const numbers = [1, 100, 67, -5, 6784, 356, 200];
 
-function greaterThan(arr, num) {
-  const greatArr = arr.filter((n) => {
-    if (num < n) {
-      return n;
-    }
+function greaterNumber(arr, num) {
+  return arr.find((item) => {
+    return num < item;
   });
-  return greatArr;
 }
 
-console.log(greaterThan(numbersR, 200));
+const returnedNumber = greaterNumber(numbers, 100);
 
-function greaterLess(arr, num, numTwo) {
-  const midArr = arr.filter((n) => {
-    if (num < n && numTwo > n) {
-      return n;
-    }
+console.log(returnedNumber);
+
+const inventory = [
+  { name: "apples", quantity: 2 },
+  { name: "bananas", quantity: 0 },
+  { name: "cherries", quantity: 5 },
+];
+
+function whichFruit(arr, fruit) {
+  let found = [];
+  arr.find((item) => {
+    found.push(item.name === fruit ? item.name : `"${item.name}" do not match`);
   });
-  return midArr;
+  return found;
 }
 
-console.log(greaterLess([10, 20, 30, 50, 70, 90], 20, 80));
+const fruitMatch = whichFruit(inventory, "apples");
 
-const moviez = [
+console.log(fruitMatch);
+
+const movies = [
   {
     id: 1,
     url: "http://www.tvmaze.com/shows/1/under-the-dome",
@@ -147,29 +153,15 @@ const moviez = [
   },
 ];
 
-function rating(arr, rate) {
-  const rateCompare = arr.filter((el) => {
-    if (el.rating.average > rate) {
-      return el.rating.average;
+function findMovie(arr, id) {
+  let refined = {};
+  arr.find((movie) => {
+    if (movie.id === id) {
+      refined = { movieName: movie.name, movieLanguage: movie.language };
     }
   });
-  return rateCompare;
+  return refined;
 }
 
-console.log(rating(moviez, 7));
-
-// 3.5
-
-function rateRunTime(arr, stars, min) {
-  const movieFilter = arr.filter((el) => {
-    return el.rating.average > stars && el.runtime < min;
-  });
-  return movieFilter.map((item) => {
-    return {
-      name: item.name,
-      rating: item.rating.average,
-    };
-  });
-}
-
-console.log(rateRunTime(moviez, 5, 100));
+let loggedMovieId = findMovie(movies, 3);
+console.log(loggedMovieId);
