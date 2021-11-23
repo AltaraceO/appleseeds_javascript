@@ -726,4 +726,30 @@ carMarket.setPropertyBrnadToAllCustomerCars();
 
 //*   2) sortAndFilterByYearOfProduction:(fromYear,toYear){} // return{Array of models} filter and Sort in a Descending order all vehicles for sale by year of production.
 
+carMarket.sortAndFilterByYearOfProduction = function () {
+  carsByYear = this.getAllCarsToBuy();
+
+  carsByYear.sort((a, b) => {
+    return a.year - b.year;
+  });
+  return carsByYear;
+};
+
+console.log(carMarket.sortAndFilterByYearOfProduction());
+
+carMarket.sortAndFilterByYearOfProduction();
+
 //*   3) sortAndFilterByPrice:(fromPrice,toPrice){} // return{Array of models} filter and Sort in a Descending order all vehicles for sale by price of the cars.
+
+carMarket.sortAndFilterByPrice = function () {
+  carsByPrice = this.getAllCarsToBuy();
+
+  carsByPrice.sort((a, b) => {
+    return b.price - a.price;
+  });
+  return carsByPrice;
+};
+
+console.log(carMarket.sortAndFilterByPrice());
+
+carMarket.sortAndFilterByPrice();
