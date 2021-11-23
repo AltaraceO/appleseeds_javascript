@@ -693,5 +693,37 @@ carMarket.getAllCarsToBuy = function () {
 
 console.log(carMarket.getAllCarsToBuy());
 
-// getAllCarsToBuy: function () {}, // @return {} - arrays of all models objects
-// carMarket.getAllCarsToBuy = function () { const res = []; this.sellers.forEach((agency) => { res.push(...this.getAllCarToBuyByAgencyId(agency.agencyId)); }); return res; };
+carMarket.setPropertyBrandToAllModelsObj = function () {
+  this.sellers.forEach((agencyObj) => {
+    const carArr = agencyObj.cars;
+    carArr.forEach((carObject) => {
+      const modelArr = carObject.models;
+      modelArr.forEach((modelObj) => {
+        modelObj.brand = carObject.brand;
+      });
+    });
+  });
+};
+
+carMarket.setPropertyBrandToAllModelsObj();
+
+//*  1) setPropertyBrandToAllCustumerCars:(){} // @return (nothing) set all customers cars model object the currect brand  (like we did for the sellers)
+
+carMarket.setPropertyBrnadToAllCustomerCars = function () {
+  this.customers.forEach((personObj) => {
+    const persalCarArr = personObj.cars;
+    persalCarArr.forEach((privateCarObj) => {
+      this.getAllCarsToBuy().forEach((availableCar) => {
+        if (availableCar.name === privateCarObj.name) {
+          privateCarObj.brand = availableCar.brand;
+        }
+      });
+    });
+  });
+};
+
+carMarket.setPropertyBrnadToAllCustomerCars();
+
+//*   2) sortAndFilterByYearOfProduction:(fromYear,toYear){} // return{Array of models} filter and Sort in a Descending order all vehicles for sale by year of production.
+
+//*   3) sortAndFilterByPrice:(fromPrice,toPrice){} // return{Array of models} filter and Sort in a Descending order all vehicles for sale by price of the cars.
