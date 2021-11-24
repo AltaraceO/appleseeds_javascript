@@ -37,5 +37,18 @@
     subFour.innerText = "sub title 4";
 
     mainTitleChange.nextElementSibling.appendChild(subFour);
+
+    nodeDom.nextElementSibling.nextElementSibling.remove();
+
+    const htmlTitle =
+      nodeDom.parentElement.parentElement.parentElement.firstElementChild
+        .lastElementChild.previousElementSibling;
+
+    htmlTitle.textContent = "Master of the Dom";
+
+    const pChange = nodeDom.parentElement.nextElementSibling.firstElementChild;
+
+    pChange.textContent =
+      "I've still got the greatest enthusiasm and confidence in the mission. And I want to help you.";
   </script>
 </html>
