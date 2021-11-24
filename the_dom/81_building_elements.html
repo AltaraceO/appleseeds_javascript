@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /
+>
+<meta name="viewport" content="width=device-width,
+initial-scale=1.0" />
+<title>Document</title>
+</head>
+<body>
+<h1>Header</h1>
+<p>Paragraph</p>
+<a href="#">link</a>
+<img src="" alt="" />
+<div class="x">Div with a class</div>
+<div id="y">Div with an id</div>
+<input type="text" />
+<input type="text" />
+<input type="text" />
+</body>
+<script>
+const headers = document.querySelectorAll('*');
+const divsTag = document.getElementsByTagName('*')
+const allAs = document.getElementsByTagName('a')
+const divId = document.getElementById('y')
+const divClass = document.getElementsByClassName('x')
+
+const inputClass = document.getElementsByTagName('input')
+const inputQuery = document.querySelectorAll('input')
+
+const arrQuerySelect = [...inputQuery]
+
+const arrTagName = [...inputClass]
+
+arrQuerySelect.forEach((x)=>{
+     console.log(x);
+})
+
+arrTagName.forEach((x)=>{
+    console.log(x);
+})
+
+for(let input of inputClass){
+    console.log(input);
+}
+
+
+// inputClass.forEach((x) =>{
+//     console.log(x);
+// })
+
+
+
+// loopTagName()
+// console.log(divClass);
+// console.log(divId);
+// console.log(allAs);
+console.log(divsTag);
+// console.log(headers);
+</script>
+</html
