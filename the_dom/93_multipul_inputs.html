@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="pasteDiv" contenteditable="true">123456</div>
+    <input
+      type="text"
+      id="first"
+      maxlength="1"
+      size="1"
+      onkeyup="skip('first', 'second')"
+    />
+    <input
+      type="text"
+      id="second"
+      maxlength="1"
+      size="1"
+      onkeyup="skip('second', 'third')"
+    />
+    <input
+      type="text"
+      id="third"
+      maxlength="1"
+      size="1"
+      onkeyup="skip('third', 'fourth')"
+    />
+    <input
+      type="text"
+      id="fourth"
+      maxlength="1"
+      size="1"
+      onkeyup="skip('fourth', 'fifth')"
+    />
+    <input
+      type="text"
+      id="fifth"
+      maxlength="1"
+      size="1"
+      onkeyup="skip('fifth', 'sixth')"
+    />
+    <input type="text" id="sixth" maxlength="1" size="1" />
+
+    <div class="second-form">
+      <form id="parent">
+        <input type="text" id="inn" maxlength="1" size="1" />
+      </form>
+    </div>
+  </body>
+  <script>
+    function skip(curr, next) {
+      //*can be used with 'this' instead of curr (skip(this,'second'))
+      //*then there is no need for the following line right under this
+      let curr2 = document.getElementById(curr); //<--this line can be ommited if 'this' used as first parameter
+      let length = curr2.value.length;
+      let max = curr2.getAttribute("maxLength");
+      console.log(typeof length);
+      console.log(typeof max);
+
+      if (length === Number(max)) {
+        document.getElementById(next).focus();
+      }
+    }
+
+    //  -------------Second ----------------
+    const dupInputs = document.getElementById("[id='inn']");
+    const toCopy = document.getElementById("inn");
+    const theParent = document.getElementById("parent");
+
+    for (let i = 0; i < 5; i++) {
+      theParent.appendChild(toCopy.cloneNode(true));
+    }
+
+    console.dir(theParent);
+
+    const inputs = document.querySelectorAll("#inn");
+    console.dir(inputs);
+
+    inputs.forEach((input, index) => {
+      input.addEventListener("paste", (event) => {
+        const paste = event.clipboardData.getData("text");
+        const pasteArr = paste.split("");
+        for (let i = 0; i < pasteArr.length; i++) {
+          inputs[index + i].value = pasteArr[i];
+        }
+      });
+      input.addEventListener("keyup", (event) => {
+        if (input.nextElementSibling && input.value) {
+          input.nextElementSibling.focus();
+        }
+      });
+    });
+  </script>
+</html>
