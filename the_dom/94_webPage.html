@@ -6,6 +6,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
-  <script></script>
+  <body>
+    <div style=""></div>
+  </body>
+  <script>
+    const books = [
+      {
+        index: 1,
+        img: "/books/manTrain.webp",
+        title: "The Man from the Train",
+        author: "Bill James",
+        publication: "September 19, 2017",
+        reviews: "****",
+      },
+      {
+        index: 2,
+        img: "/books/forestCIty.webp",
+        title: "The Forest City Killer",
+        author: "Vanessa Brown",
+        publication: "October 4, 2019",
+        reviews: "*****",
+      },
+      {
+        index: 3,
+        img: "/books/whiteCity.webp",
+        title: "The Devil in the White City",
+        author: "Erik Larson",
+        publication: "2003",
+        reviews: "*****",
+      },
+      {
+        index: 4,
+        img: "/books/inTheDark.webp",
+        title: "I'll Be Gone in the Dark",
+        author: "Michelle McNamara",
+        publication: "February 27, 2018",
+        reviews: "*****",
+      },
+      {
+        index: 5,
+        img: "/books/deranged.webp",
+        title: "Deviant",
+        author: "Harold Schechter",
+        publication: "Oct 1, 1998",
+        reviews: "*****",
+      },
+    ];
+    const homePage = document.querySelector("home");
+    books.forEach((el) => {
+      let cardDiv = document.querySelector("div");
+
+      cardDiv.innerHTML =
+        cardDiv.innerHTML +
+        `
+
+
+<div style="border: maroon 2px solid;width:290px;display:flex;flex-direction:column;align-items:center;justify-content:center" >
+          <div>
+            <img
+              src="${el.img}"
+              alt=""
+            />
+          </div>
+
+          <div >
+            <p>
+              ${el.title}
+            </p>
+          </div>
+
+          <div >
+            <div ></div>
+            <div> By - ${el.author} ${el.reviews}</div>
+          </div>
+
+          <div >
+            <div > Published - ${el.publication}</div>
+            <div ></div>
+          </div>
+        </div>
+        <br>
+        <br>
+        
+
+`;
+    });
+  </script>
 </html>
