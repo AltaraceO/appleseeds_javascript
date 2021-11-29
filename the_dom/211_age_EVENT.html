@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="mainArea">
+      <!-- when inside a form it re-sets eachtime -->
+
+      <!-- <form action=""> -->
+      <input type="text" class="age" maxlength="2" />
+      <button>How old are you</button>
+      <!-- </form> -->
+    </div>
+  </body>
+  <script>
+    const inputVal = document.querySelector(".age");
+    const ageBtn = document.querySelector("button");
+    const mainDiv = document.querySelector(".mainArea");
+    const newAlert = document.createElement("h1");
+    newAlert.innerText = "?";
+    mainDiv.appendChild(newAlert);
+
+    ageBtn.addEventListener("click", (e) => {
+      if (inputVal.value < 18) {
+        newAlert.innerText = "too young";
+      } else {
+        newAlert.innerText = "old enough";
+      }
+    });
+
+    // Rajaa's solution using keyup --> only starts the click function when there is value in the input... keyup is true or false.
+
+    inputVal.addEventListener("keyup", (e) => {
+      ageBtn.addEventListener("click", (event) => {
+        if (inputVal.value > 18) {
+          inputVal.value = "old enough to drink";
+        }
+      });
+      ageBtn.addEventListener("click", (event) => {
+        if (inputVal.value < 18) {
+          inputVal.value = "NOT old enough to drink";
+        }
+      });
+    });
+  </script>
+</html>

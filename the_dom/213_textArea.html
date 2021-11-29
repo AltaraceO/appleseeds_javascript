@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Why are you interested in this position</h1>
+    <textarea name="text" id="txt" cols="30" rows="10"></textarea>
+    <br />
+    <button>Click here!</button>
+    <p class="lorem">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus culpa
+      illo ullam. Nemo iste nobis dolor quo animi sunt alias similique magnam,
+      asperiores nam ratione nesciunt unde est excepturi quaerat repellendus
+      facilis autem debitis, sit beatae sint eveniet! Enim ipsa rem aliquam iure
+      excepturi ducimus laboriosam officia et eos hic vero cum quam natus
+      deleniti, accusantium consectetur perferendis, sapiente beatae quia eum
+      porro voluptates est nam? Quis incidunt deleniti, ratione atque ad,
+      aperiam ullam, perferendis repudiandae neque tempore tenetur? Quaerat,
+      inventore similique. Earum, architecto laborum nostrum est eius
+      repellendus optio quisquam vero voluptatibus, aspernatur ut nisi ad
+      voluptates tempore atque!pellendus optio quisquam vero voluptatibus,
+      aspernatur ut nisi ad voluptates tempore atque!
+    </p>
+  </body>
+  <script>
+    const subBtn = document.querySelector("button");
+    const txtArea = document.querySelector("#txt");
+
+    subBtn.addEventListener("click", (event) => {
+      const txtLenght = txtArea.value.length;
+
+      if (txtLenght > 100) {
+        subBtn.textContent = "submitted!";
+      } else {
+        subBtn.textContent = "not @ 100 chars yet...";
+      }
+    });
+  </script>
+</html>
