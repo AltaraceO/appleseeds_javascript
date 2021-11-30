@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 200px;
+      }
+      .main {
+        position: relative;
+      }
+      .window {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 250px;
+        height: 200px;
+        border: black 1px solid;
+        left: 10px;
+        top: 0;
+        background-color: wheat;
+        visibility: hidden;
+        padding: 30px;
+      }
+      .done {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 550px;
+        height: 300px;
+        border: black 1px solid;
+        left: 0;
+        top: 0;
+        font-size: 50px;
+        background-color: red;
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <form action="">
+        <label for="name">name</label>
+        <input type="text" name="name" id="name" />
+        <label for="age">age</label>
+        <input type="text" name="age" id="age" />
+        <label for="email">email</label>
+        <input type="text" name="email" id="email" />
+        <label for="address">address</label>
+        <input type="text" name="address" id="address" />
+        <br />
+        <input type="submit" name="submit" id="submit" />
+      </form>
+      <div class="floating window">
+        <div class="objTarget"></div>
+        <button class="btnOne">click to change</button>
+        <button class="confirm">all good?</button>
+      </div>
+      <div class="done">bye!</div>
+    </div>
+  </body>
+
+  <script>
+    const form = document.querySelector("form");
+    const target = document.querySelector(".objTarget");
+    const float = document.querySelector(".window");
+    const confirmBtn = document.querySelector(".confirm");
+    const changeBtn = document.querySelector(".btnOne");
+    const done = document.querySelector(".done");
+    let newObj = {};
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      newObj[this.age.name] = this.age.value;
+      newObj[this.name.name] = this.name.value;
+      newObj[this.email.name] = this.email.value;
+      newObj[this.address.name] = this.address.value;
+
+      target.innerText = `name: ${newObj.name} 
+
+      age: ${newObj.age}
+
+      address: ${newObj.address}
+
+      email: ${newObj.email}`;
+
+      console.log(float);
+      float.style.visibility = "visible";
+    });
+
+    changeBtn.addEventListener("click", function (e) {
+      float.style.visibility = "hidden";
+    });
+
+    confirmBtn.addEventListener("click", function (e) {
+      done.style.visibility = "visible";
+    });
+  </script>
+</html>
