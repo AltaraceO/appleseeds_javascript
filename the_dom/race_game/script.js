@@ -13,6 +13,6 @@ window.addEventListener("keyup", function (e) {
 
   if (e.key === "ArrowDown") {
     console.log(player1.nextSibling);
-    player1.nextElementSibling.style = backgroundUrl;
+    player1.nextElementSibling.style.setProperty = backgroundUrl;
   }
 });
