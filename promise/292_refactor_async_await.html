@@ -13,20 +13,20 @@
   </body>
   <script>
     const button = document.querySelector(".jk");
+    const output = document.querySelector(".output");
 
     button.addEventListener("click", getJoke);
 
     async function getJoke() {
       const jokeFetch = await fetch("https://api.jokes.one/jod");
 
-      console.log(jokeFetch);
-      // .then((res) => res.json())
-      // .then((data) => {
-      //   let theJoke = data.contents.jokes[0].joke.text;
-      //   let title = data.contents.jokes[0].joke.title;
-      //   document.querySelector(".output").innerText = theJoke;
-      //   document.querySelector(".title").innerText = title;
-      // });
+      const toJson = await jokeFetch.json();
+
+      const theJoke = toJson.contents.jokes[0].joke;
+
+      output.textContent = `${theJoke.title}
+
+       ${theJoke.text}`;
     }
   </script>
 </html>
