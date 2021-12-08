@@ -48,7 +48,7 @@ function createCard(data) {
   const a = document.createElement("a");
   a.textContent = data.name;
   a.href = data.html_url;
-  a.style.display = "block";=
+  a.style.display = "block";
   newCard.appendChild(a);
   const h4 = document.createElement("h4");
   h4.textContent = data.public_repos;
