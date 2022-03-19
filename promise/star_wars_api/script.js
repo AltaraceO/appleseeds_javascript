@@ -3,7 +3,7 @@ const mainDiv = document.querySelector(".data");
 let peopleArr = [];
 
 function theLoop() {
-  for (let i = 1; i <= 3; i++) {
+  for (let i = 1; i <= 10; i++) {
     getCharacter(i);
   }
 }
@@ -16,7 +16,7 @@ async function getCharacter(num) {
       throw new Error(`${response.status}`);
     } else {
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       //   populateObj(data);
       const newWorld = data.homeworld;
 
@@ -27,7 +27,7 @@ async function getCharacter(num) {
       } else {
         // console.log(nextResponse);
         const newData = await nextResponse.json();
-        console.log(newData);
+        // console.log(newData);
         newObj.planet = {
           planet_population: newData.population,
           planet_origin: newData.name,
@@ -49,9 +49,10 @@ function populateObj(obj) {
   //   obj.name = data.name;
   //   obj.height = data.height;
   //   obj.hair_color = data.hair_color;
-  console.log(obj);
+  // console.log(obj);
   peopleArr.push(obj);
   console.log(peopleArr);
 }
 
 theLoop();
+console.log(peopleArr);
