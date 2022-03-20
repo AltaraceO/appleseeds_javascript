@@ -1,0 +1,1 @@
+let result = if (3=='3'){42} else{0}
